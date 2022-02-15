@@ -1,0 +1,10 @@
+<h3>Regisztráció az oldalra</h3>
+<hr>
+<p>  Profil létrehozásához add meg az alábbi adatokat:</p> 
+<form>
+    <input type="text" name="name" id="name" placeholder="Felhasználónév" class="form-control mb-3" ng-model="name" required>
+    <input type="email" name="email" id="email" placeholder="E-mail cím" class="form-control mb-3" ng-model="email" required>
+    <input type="password" name="pass1" id="pass1" placeholder="Jelszó" class="form-control mb-3" ng-model="pass1" required>
+    <input type="password" name="pass2" id="pass2" placeholder="Jelszó megerősítése" class="form-control mb-3" ng-model="pass2" required>
+    <input type="button" value="Regisztráció elküldése" class="btn btn-dark" ng-click="userreg()">
+</form>

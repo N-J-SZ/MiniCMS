@@ -1,0 +1,44 @@
+:root{
+    --carousel-bg: gray;
+    --footer-bg: rgb(90, 90, 90);
+    --footer-fc: white;
+    --aside-bg: #f8f9fa;
+    --header-fc: black;
+}
+
+body{}
+
+.header{}
+
+.header a{
+    text-decoration: none;
+    color: var(--header-fc);
+}
+
+.main{}
+
+.footer{
+    background-color: var(--footer-bg);
+    color: var(--footer-fc);
+    padding: 15px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+section{
+    padding: 15px;
+}
+
+section p{
+    text-align: justify;
+}
+
+aside{
+    background-color: var(--aside-bg);
+    padding: 15px;
+}
+
+.d-block{
+    height: 400px;
+    background-color: var(--carousel-bg)
+}

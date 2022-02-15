@@ -1,0 +1,56 @@
+###
+GET http://localhost/Backend_214_SZFTE/PHP/adatbazis_kapcsolat/getAllRecords.php
+Content-Type: application/json
+
+{
+    "table":"felhasznalok"
+}
+
+###
+GET  http://localhost/Backend_214_SZFTE/PHP/adatbazis_kapcsolat/getOneRecord.php
+Content-Type: application/json
+
+{
+    "id":10,
+    "table":"torpek"
+}
+
+###
+POST http://localhost/Backend_214_SZFTE/PHP/adatbazis_kapcsolat/insertRecord.php
+Content-Type: application/json
+
+{
+    "table":"torpek",
+    "values":{
+        "nev":"'probatorp'",
+        "klan":"'hupilila'",
+        "nem":"'N'",
+        "suly": 65,
+        "magassag":134
+    }
+}
+
+###
+DELETE  http://localhost/Backend_214_SZFTE/PHP/adatbazis_kapcsolat/deleteRecord.php
+Content-Type: application/json
+
+{
+    "id":81,
+    "table":"torpek"
+}
+
+###
+PUT http://localhost/Backend_214_SZFTE/PHP/adatbazis_kapcsolat/updateRecord.php
+Content-Type: application/json
+
+{
+    "id":84,
+    "table":"torpek",
+    "values":{
+        "nev":"'Próbatörp'",
+        "klan":"'Hupilila'",
+        "nem":"'N'",
+        "suly": 65,
+        "magassag":134
+    }
+}

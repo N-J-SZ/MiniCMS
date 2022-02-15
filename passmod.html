@@ -1,0 +1,18 @@
+<h3>Jelszó módosítás</h3>
+<hr>
+<p>A jelszónak minimum 8 karakterből kell állnia és tartalmaznia kell kis-, nagybetűt valamint számot!</p> 
+<form ng-controller="passmodCtrl">
+    <div class="form-floating mb-3">
+        <input type="password" placeholder="Jelenelegi jelszó" class="form-control mb-3" ng-model="oldpass" required>
+        <label for="oldpass">Jelenlegi jelszó:</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" placeholder="Új jelszó" class="form-control mb-3" ng-model="newpass1" required>
+        <label for="newpass1">Új jelszó:</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" placeholder="Új jelszó megerősítése" class="form-control mb-3" ng-model="newpass2" required>
+        <label for="newpass2">Új jelszó megerősítése:</label>
+    </div>
+    <input type="button" value="Módosítás" class="btn btn-dark" ng-click="passmod()">
+</form>

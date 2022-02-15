@@ -1,0 +1,33 @@
+<h3>Carouselek kezelése</h3>
+<hr>
+<p>Regisztrált carouselek listája:</p>
+<div ng-controller="carouselsCtrl">
+    <a href=""class="btn btn-dark">Új rekord</a>
+    <table class="table table-hover table-striped ">
+        <thead>
+            <tr>
+                <th>A kép fájl neve</th>
+                <th>Cím</th>
+                <th>Szöveg</th>
+                <th>Műveletek</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in carousels">
+                <td><img src="{{item.file}}" class="img-thumbnail"></td>
+                <td>{{item.header}}</td>
+                <td>{{item.text}}</td>
+                <td>
+                    <div class="form-check form-switch">
+                        <a href="">szerkesztés</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Összesen: {{carousels.length}} rekord</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

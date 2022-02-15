@@ -1,0 +1,33 @@
+<h3>Tartalmak kezelése</h3>
+<hr>
+<p>Regisztrált tartalmak listája:</p>
+<div ng-controller="contentsCtrl">
+    <a href=""class="btn btn-dark">Új rekord</a>
+    <table class="table table-hover table-striped ">
+        <thead>
+            <tr>
+                <th>Tartalom címe</th>
+                <th>Felvette</th>
+                <th>Dátum</th>
+                <th>Műveletek</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in contents">
+                <td>{{item.title}}</td>
+                <td>{{item.userName}}</td>
+                <td>{{item.last}}</td>
+                <td>
+                    <div class="form-check form-switch">
+                        <a href="">szerkesztés</a>
+                      </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Összesen: {{contents.length}} rekord</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+<h3>Új menüpont felvétele</h3>
+<hr>
+<div ng-controller="navitemsCtrl">
+    <form action="">
+        <div class="form-floating mb-3">
+            <input type="text" placeholder="Menüpont neve:" class="form-control mb-3" ng-model="name" required>
+            <label for="name">Menüpont neve:</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" placeholder="Hivatkozás:" class="form-control mb-3" ng-model="url" required>
+            <label for="url">Hivatkozás:</label>
+        </div>
+        <button class="btn btn-primary" ng-click="addNavItem()">Felvesz</button>
+    </form>
+    <br>
+    <a href="#!/navitems" class="btn btn-dark">Vissza a menüpontok listájára...</a>
+</div>

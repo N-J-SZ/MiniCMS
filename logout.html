@@ -1,0 +1,10 @@
+<h3>Bejelentkezve</h3>
+<hr>
+<form ng-controller="loginCtrl">
+    <h5 class="mb-2">{{userName}}</h5>
+    <h6 class="mb-3">{{userMail}}</h6>
+    <ul>
+        <li ng-repeat="item in menuitems" ng-show="item.rights <= userStatus"><a href="#!/{{item.url}}">{{item.name}}</a></li>
+    </ul>
+    <a href="" class="btn btn-dark mb-3" ng-click="logout()">Kilépés</a>
+</form>

@@ -1,0 +1,14 @@
+<h3>Belépés</h3>
+<hr>
+<form ng-controller="loginCtrl">
+    <div class="form-floating mb-3">
+        <input type="email" name="email" id="email" class="form-control mb-3" ng-model="email" placeholder="E-mail cím...">
+        <label for="email">E-mail cím:</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" name="passwd" id="passwd" class="form-control mb-3" ng-model="passwd" placeholder="Jelszó...">
+        <label for="password">Jelszó:</label>
+    </div>
+    <button type="submit" class="btn btn-dark mb-3" ng-click="login()">Belépés</button>
+    <a href="#!/reg" class="btn btn-dark mb-3">Regisztráció</a>
+</form>

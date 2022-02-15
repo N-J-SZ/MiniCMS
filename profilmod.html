@@ -1,0 +1,22 @@
+<h3>Profil módosítás</h3>
+<hr>
+<p>Add meg az alábbi adatokat a profilod módosításához:</p> 
+<form ng-controller="profilmodCtrl">
+    <div class="form-floating mb-3">
+        <input type="text" placeholder="Felhasználónév" class="form-control mb-3" ng-model="name" required>
+        <label for="name">Felhasználónév:</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" placeholder="E-mail cím" class="form-control mb-3" ng-model="email" required>
+        <label for="email">E-mail cím:</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" placeholder="Regisztráció dátuma" class="form-control mb-3" ng-model="reg" disabled>
+        <label for="reg">Regisztráció dátuma:</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" placeholder="Ut.belépés dátuma" class="form-control mb-3" ng-model="last" disabled>
+        <label for="last">Utolsó belépés dátuma:</label>
+    </div>
+    <input type="button" value="Módosítás" class="btn btn-dark" ng-click="profilmod()">
+</form>
