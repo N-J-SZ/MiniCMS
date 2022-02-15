@@ -8,6 +8,7 @@
             <tr>
                 <th>Menüpont neve</th>
                 <th>URL</th>
+                <th>Láthatóság</th>
                 <th>Műveletek</th>
             </tr>
         </thead>
@@ -20,6 +21,10 @@
                         <input class="form-check-input" type="checkbox" role="switch" ng-click="switchstatus(item.ID)" ng-if="item.status==0" id="flexSwitchCheckDefault">
                         <input class="form-check-input" type="checkbox" role="switch" ng-click="switchstatus(item.ID)" ng-if="item.status==1" id="flexSwitchCheckDefault" checked>
                     </div>
+                </td>
+                <td>
+                    <a href="#!/editNavItem/{{item.ID}}" class="btn btn-primary">Módosít</a>
+                    <a href="" class="btn btn-primary" ng-click="deleteNavItem(item.ID)">Töröl</a>
                 </td>
             </tr>
         </tbody>

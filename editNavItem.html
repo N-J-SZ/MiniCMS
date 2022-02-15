@@ -1,0 +1,18 @@
+<h3>Menüpont módosítás</h3>
+<hr>
+<p>Adja meg az adatokat:</p> 
+<form ng-controller="navmodCtrl">
+    <div class="form-floating mb-3">
+        <input type="text" placeholder="Új menü név:" class="form-control mb-3" ng-model="name" required>
+        <label for="name">Új menü név:</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" placeholder="Új url cím:" class="form-control mb-3" ng-model="url" required>
+        <label for="name">Új url cím:</label>
+    </div>
+
+    <input type="button" value="Módosítás" class="btn btn-dark" ng-click="navitemMod()">
+    <br>
+    <br>
+    <a href="#!/navitems" class="btn btn-dark">Vissza a menüpontok listájára...</a>
+</form>

@@ -92,6 +92,10 @@ app.config(function($routeProvider) {
             templateUrl: 'carousels.html',
             controller: 'carouselsCtrl',
         })
+        .when('/editNavItem/:ID', {
+            templateUrl: 'editNavItem.html',
+            controller: 'navmodCtrl',
+        })
 });
 
 app.controller('homeCtrl', function($scope) {
@@ -424,6 +428,22 @@ app.controller('navitemsCtrl', function($scope, $http, $rootScope, $location) {
                 });
         }
     }
+    
+    $scope.deleteNavItem = function(ID) {
+        $http({
+            method: "POST",
+            url: "./API/deleteRecord.php",
+            data: {
+                "table": "navitems",
+                "id": ID,
+            }
+        })
+        .then(function(response) {
+            let index = $scope.navitems.findIndex(item => item.ID === ID);
+            $scope.navitems.splice(index, 1);
+            alert(response.data.message);
+        });
+    }
 });
 
 app.controller('contentsCtrl', function($scope, $http, $rootScope) {
@@ -452,4 +472,43 @@ app.controller('carouselsCtrl', function($scope, $http, $rootScope) {
         .then(function(response) {
             $scope.carousels = response.data;
         });
+});
+
+app.controller('navmodCtrl', function($scope, $http, $rootScope, $location, $routeParams) {
+    $http({
+            method: "POST",
+            url: "./API/getOneRecord.php",
+            data: {
+                "table": "navitems",
+                "felt": "ID =" + $routeParams.ID
+            }
+        })
+        .then(function(response) {
+            console.log(response.data);
+            $scope.name = response.data.name;
+            $scope.url = response.data.url;
+            $scope.ID = response.data.ID;
+        });
+
+    $scope.navitemMod = function() {
+
+        $http({
+            method: "POST",
+            url: "./API/updateRecord.php",
+            data: {
+                "table": "navitems",
+                "id": $scope.ID,
+                "values": {
+                    "name": "'" + $scope.name + "'",
+                    "icon": "null",
+                    "url": "'" + $scope.url + "'",
+                    "status": 1
+                }
+            }
+        })
+        .then(function(response) {
+            alert(response.data.message)
+            $location.path('#!/navitems')
+        });
+    }
 });

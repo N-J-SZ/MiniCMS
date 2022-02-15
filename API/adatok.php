@@ -1,6 +1,6 @@
 <?php
-    $dbhost = 'localhost';
-    $dbname = '214SZFT_MiniCMS';
-    $dbuser = 'root';
-    $dbpass = '';
+    $dbhost = '172.16.100.12';
+    $dbname = '214szft_minicms';
+    $dbuser = '214SZFT';
+    $dbpass = '123456';
 ?>
