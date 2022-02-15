@@ -426,8 +426,11 @@ app.controller('navitemsCtrl', function($scope, $http, $rootScope, $location) {
     }
 });
 
-app.controller('contentsCtrl', function($scope, $http, $rootScope) {
+app.controller('contentsCtrl', function($scope, $http, $rootScope, $location) {
     $scope.contents = [];
+    $scope.menus = [];
+    $scope.mod = false;
+    $scope.selected;
     $http({
             method: "POST",
             url: "./API/getAllRecords.php",
@@ -437,7 +440,106 @@ app.controller('contentsCtrl', function($scope, $http, $rootScope) {
         })
         .then(function(response) {
             $scope.contents = response.data;
+    });
+
+    $http({
+        method: "POST",
+        url: "./API/getAllRecords.php",
+        data: {
+            'table': 'navitems'
+        }
+    })
+    .then(function(response) {
+        $scope.menus = response.data;
+    });
+
+    $scope.felvesz = ()=>{
+        if ($scope.cim == null || $scope.tartalom == null || $scope.menu == null) {
+            alert("Nem adtál meg minden adtot!");
+        } else {
+            $http({
+                    method: "POST",
+                    url: "./API/insertRecord.php",
+                    data: {
+                        "table": "contents",
+                        "values": {
+                            "title": "'" + $scope.cim + "'",
+                            "content": "'" + $scope.tartalom + "'",
+                            "menuID": "'" + $scope.menu + "'",
+                            "userName": "'" + $rootScope.userName + "'",
+                            "last": "CURRENT_TIMESTAMP"
+                        }
+                    }
+                })
+                .then(function(response) {
+                    alert(response.data.message);
+                    var path = $location.path() + "/";
+                    $location.path(path);
+                });
+        }
+    }
+
+    $scope.putData = (index)=>{
+        $scope.mod = true;
+        $scope.selected = $scope.contents[index];
+        console.log($scope.selected);
+        $scope.cim = $scope.selected.title;
+        $scope.tartalom = $scope.selected.content;
+        $scope.menu = $scope.selected.menuID;
+    }
+
+    $scope.vissza = ()=>{
+        $scope.mod = false;
+        $scope.cim = null;
+        $scope.tartalom = null;
+        $scope.menu = null;
+    }
+
+    $scope.modosit = ()=>{
+        if ($scope.cim == null || $scope.tartalom == null || $scope.menu == null) {
+            alert("Nem adtál meg minden adtot!");
+        } else {
+            $http({
+                    method: "POST",
+                    url: "./API/updateRecord.php",
+                    data: {
+                        "id": $scope.selected.ID,
+                        "table": "contents",
+                        "values": {
+                            "title": "'" + $scope.cim + "'",
+                            "content": "'" + $scope.tartalom + "'",
+                            "menuID": "'" + $scope.menu + "'",
+                            "userName": "'" + $rootScope.userName + "'",
+                            "last": "CURRENT_TIMESTAMP"
+                        }
+                    }
+                })
+                .then(function(response) {
+                    alert(response.data.message);
+                    //$location.path('#!');
+                    var path = $location.path() + "/";
+                    $location.path(path);
+                });
+        }
+    }
+
+    $scope.delete = (index)=>{
+        $scope.selected = $scope.contents[index];
+        $http({
+            method: "POST",
+            url: "./API/deleteRecord.php",
+            data: {
+                "id": $scope.selected.ID,
+                "table": "contents",
+            }
+        })
+        .then(function(response) {
+            alert(response.data.message);
+            //$location.path('#!');
+            var path = $location.path() + "/";
+            $location.path(path);
         });
+    }
 });
 
 app.controller('carouselsCtrl', function($scope, $http, $rootScope) {
